@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Unit 1 - Hello World and Primitive Data Types &#8212; AP CSA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'APCSA/primitiveTypes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AP CSA</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 1 - Hello World and Primitive Data Types</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA/issues/new?title=Issue%20on%20page%20%2FAPCSA/primitiveTypes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/APCSA/primitiveTypes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit 1 - Hello World and Primitive Data Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Unit 1 - Hello World and Primitive Data Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello World</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-errors">Runtime Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-errors-bugs">Logical Errors (bugs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-errors">Avoiding Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-data-types">Variables and Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-assignment-statements">Expressions and Assignment Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operators">Arithmetic Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-operators-consist-of">The arithmetic operators consist of:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-assignment-operators">Compound Assignment Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-compound-operators">Common compound operators:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#increment-and-decrement-operators">Increment and Decrement Operators:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-and-ranges-of-variables">Casting and Ranges of Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widening-casting-automatic">Widening Casting (Automatic):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narrowing-casting-manual">Narrowing Casting (Manual):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-escape-sequences">Common escape sequences:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-1-hello-world-and-primitive-data-types">
+<h1>Unit 1 - Hello World and Primitive Data Types<a class="headerlink" href="#unit-1-hello-world-and-primitive-data-types" title="Link to this heading">#</a></h1>
+<p>The assumption is that you have your development environment set up by now.</p>
+<section id="hello-world">
+<h2>Hello World<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h2>
+<p>Your first task is to create a file <code class="docutils literal notranslate"><span class="pre">Main.java</span></code> in VScode and run the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Main</span><span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Play around with the code and explore the outputs. Some things to try:</p>
+<ul class="simple">
+<li><p>Write multiple print statements</p></li>
+<li><p>Compare the difference between the commands <code class="docutils literal notranslate"><span class="pre">System.out.print</span></code> and <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code></p></li>
+<li><p>Try printing numbers and/or characters</p></li>
+<li><p>Try ommiting the quotations</p></li>
+<li><p>Try single quotes <code class="docutils literal notranslate"><span class="pre">'</span></code> instead of double quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p></li>
+</ul>
+</section>
+<section id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h2>
+<p>If you tried running the following code block, you probably saw an error message in your development environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Main</span><span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Errors are nothing to be afraid of in coding and are common occurences. There are three types of errors you will encounter:</p>
+<ul class="simple">
+<li><p>Syntax</p></li>
+<li><p>Runtime</p></li>
+<li><p>Logic</p></li>
+</ul>
+<section id="syntax-errors">
+<h3>Syntax Errors<a class="headerlink" href="#syntax-errors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Bad grammar in Java</p>
+<ul>
+<li><p>Misspelled words</p></li>
+<li><p>Incorrect case</p></li>
+<li><p>Missing semicolons</p></li>
+</ul>
+</li>
+<li><p>Java does not understand.</p></li>
+</ul>
+<p><strong>E.g.:</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Svstem.out.pruntln(&quot;&quot;);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">system.out.println(&quot;&quot;);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">main(String[]</span> <span class="pre">arqs)</span> <span class="pre">{</span></code></p></li>
+</ol>
+<p>✅ <strong>Error message</strong><br />
+❌ <strong>Program does not run</strong></p>
+</section>
+<section id="runtime-errors">
+<h3>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Program syntax is correct, but program asks computer to do something impossible or not allowed.</p></li>
+<li><p>Program runs but ends with an error.</p></li>
+</ul>
+<p><strong>E.g.:</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="c1">// Error when n == 0</span>
+</pre></div>
+</div>
+<p>✅ <strong>Error message after stopping</strong><br />
+❌ <strong>Program stops</strong></p>
+</section>
+<section id="logical-errors-bugs">
+<h3>Logical Errors (bugs)<a class="headerlink" href="#logical-errors-bugs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Program does not do what was intended.</p></li>
+<li><p>Can be hard to find.</p></li>
+</ul>
+<p><strong>E.g.:</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEven</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>❌ No Error message<br />
+✅ Program runs</p>
+</section>
+<section id="avoiding-errors">
+<h3>Avoiding Errors<a class="headerlink" href="#avoiding-errors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>IDE (don’t count on it!)</p></li>
+<li><p>Comments (good for spotting logic errors)</p></li>
+<li><p>Psuedocode (can ensure your logic is correct and help avoid runtime errors)</p></li>
+<li><p>Readable code (can prevent syntax errors)</p></li>
+<li><p>Practice (even experience programmers still get errors)</p></li>
+</ul>
+</section>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Single line comments:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// this is a single-line comment</span>
+</pre></div>
+</div>
+</li>
+<li><p>Multi-line (or C-style) comments:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/* this is a </span>
+<span class="cm">multi-line comment */</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="variables-and-data-types">
+<h2>Variables and Data Types<a class="headerlink" href="#variables-and-data-types" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A variable is a named memory location that holds a data value.</p></li>
+<li><p>Variables have a data type (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>).</p></li>
+<li><p>To declare a variable, specify the type, a name, and end with a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>).</p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">number;</span></code></p></li>
+<li><p>You can change the value of a variable throughout the program.</p></li>
+<li><p>Declaring a variable as <code class="docutils literal notranslate"><span class="pre">final</span></code> makes its value unchangeable.</p></li>
+</ul>
+<section id="data-types">
+<h3>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Primitive</strong> (This chapter)</p>
+<ul>
+<li><p><strong>Boolean</strong></p>
+<ul>
+<li><p>boolean</p></li>
+</ul>
+</li>
+<li><p><strong>Numeric</strong></p>
+<ul>
+<li><p><strong>Character</strong></p>
+<ul>
+<li><p>char</p></li>
+</ul>
+</li>
+<li><p><strong>Numerical</strong></p>
+<ul>
+<li><p><strong>Integer</strong></p>
+<ul>
+<li><p>byte</p></li>
+<li><p>short</p></li>
+<li><p>int</p></li>
+<li><p>long</p></li>
+</ul>
+</li>
+<li><p><strong>Floating-point</strong></p>
+<ul>
+<li><p>float</p></li>
+<li><p>double</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Non-Primitive</strong> (Future Chapters)</p>
+<ul>
+<li><p>String</p></li>
+<li><p>Array</p></li>
+<li><p>etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="expressions-and-assignment-statements">
+<h2>Expressions and Assignment Statements<a class="headerlink" href="#expressions-and-assignment-statements" title="Link to this heading">#</a></h2>
+<p>When assigning values to variables in Java, we use the <code class="docutils literal notranslate"><span class="pre">=</span></code> sign. The right side of the <code class="docutils literal notranslate"><span class="pre">=</span></code> is the value or expression, and the left side is the variable that will store the value.</p>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Data type</strong>: <code class="docutils literal notranslate"><span class="pre">int</span></code> (integer)</p></li>
+<li><p><strong>Literal</strong>: <code class="docutils literal notranslate"><span class="pre">200</span></code></p></li>
+</ul>
+<p>A literal is a fixed value directly represented in the code without any computation.</p>
+</section>
+<section id="notes">
+<h3>Notes:<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Literals can be assigned to any primitive type variable.</p></li>
+<li><p>Literals can be in different formats: base 10, base 16 (hexadecimal), base 8 (octal), and string.</p></li>
+</ul>
+</section>
+</section>
+<section id="arithmetic-operators">
+<h2>Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">#</a></h2>
+<p>Java supports various arithmetic operations that can be performed on numerical values.</p>
+<section id="the-arithmetic-operators-consist-of">
+<h3>The arithmetic operators consist of:<a class="headerlink" href="#the-arithmetic-operators-consist-of" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> (Addition)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> (Subtraction)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> (Multiplication)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> (Division)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> (Remainder, also known as modulo)</p></li>
+</ul>
+<p>You can use these operators when assigning values to variables.</p>
+</section>
+<section id="id1">
+<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="compound-assignment-operators">
+<h2>Compound Assignment Operators<a class="headerlink" href="#compound-assignment-operators" title="Link to this heading">#</a></h2>
+<p>Java provides compound assignment operators that combine an arithmetic operation with assignment.</p>
+<section id="common-compound-operators">
+<h3>Common compound operators:<a class="headerlink" href="#common-compound-operators" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code></p></li>
+</ul>
+</section>
+<section id="increment-and-decrement-operators">
+<h3>Increment and Decrement Operators:<a class="headerlink" href="#increment-and-decrement-operators" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">++</span></code> (Increment): Adds 1 to the stored value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--</span></code> (Decrement): Subtracts 1 from the stored value.</p></li>
+</ul>
+<p>These operators can be used on variables to modify their values directly.</p>
+</section>
+<section id="id2">
+<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">num</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// num is now 8</span>
+<span class="n">num</span><span class="o">++</span><span class="p">;</span><span class="w">    </span><span class="c1">// num is now 9</span>
+<span class="n">num</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// num is now 7</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="casting-and-ranges-of-variables">
+<h2>Casting and Ranges of Variables<a class="headerlink" href="#casting-and-ranges-of-variables" title="Link to this heading">#</a></h2>
+<p>Type casting is when you assign a value of one primitive data type to another type.</p>
+<section id="widening-casting-automatic">
+<h3>Widening Casting (Automatic):<a class="headerlink" href="#widening-casting-automatic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Converting a smaller type to a larger size type automatically.</p></li>
+<li><p><strong>Order</strong>: <code class="docutils literal notranslate"><span class="pre">byte</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">short</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">char</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">int</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">long</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">float</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">double</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Example:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"> </span><span class="c1">// Automatic casting: int to double</span>
+</pre></div>
+</div>
+</section>
+<section id="narrowing-casting-manual">
+<h3>Narrowing Casting (Manual):<a class="headerlink" href="#narrowing-casting-manual" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Converting a larger type to a smaller size type.</p></li>
+<li><p><strong>Order</strong>: <code class="docutils literal notranslate"><span class="pre">double</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">float</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">long</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">int</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">char</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">short</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">byte</span></code></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Example:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">myDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.78</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">myDouble</span><span class="p">;</span><span class="w"> </span><span class="c1">// Manual casting: double to int</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="escape-sequences">
+<h2>Escape Sequences<a class="headerlink" href="#escape-sequences" title="Link to this heading">#</a></h2>
+<p>Escape sequences are combinations of the backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) and another character, which send special instructions to the compiler.</p>
+<section id="common-escape-sequences">
+<h3>Common escape sequences:<a class="headerlink" href="#common-escape-sequences" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code> – New line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code> – Quotation mark</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\t</span></code> – Tab</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\\</span></code> – Backslash</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Example:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello\nWorld&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Prints &quot;Hello&quot; on one line and &quot;World&quot; on the next</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
+<p>All questions should be done in the same program file. Please try and complete the lab without help from online resources!</p>
+<p>For more questions and a unit summary please visitn <a class="reference external" href="https://runestone.academy/ns/books/published/csawesome/Unit1-Getting-Started/toctree.html">CSAwesome</a></p>
+<ol class="arabic">
+<li><p><strong>Multiline Comment</strong><br />
+Using a multiline comment (<code class="docutils literal notranslate"><span class="pre">/*</span></code> to start the comment and <code class="docutils literal notranslate"><span class="pre">*/</span></code> to end the comment), write the name of the file, your name, and the date on separate lines.<br />
+On ALL of the questions in this homework, use single-line comments (<code class="docutils literal notranslate"><span class="pre">//</span></code>) to state which question you are answering.</p></li>
+<li><p><strong>Hello World Program</strong><br />
+Create a “Hello World” program as done in the beginning of this chapter.<br />
+Print a new line with the words “My name is “, then using a new print statement, print your name on the same line (total of 3 print statements).</p>
+<p>The output should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">World</span>
+<span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> 
+<span class="n">Your</span> <span class="n">Name</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Variable Declaration</strong><br />
+Declare four variables, using logical naming for all variables:</p>
+<ul class="simple">
+<li><p>One of type <code class="docutils literal notranslate"><span class="pre">String</span></code>, assign your name to this variable.</p></li>
+<li><p>One of type <code class="docutils literal notranslate"><span class="pre">int</span></code>, assign your age to this variable.</p></li>
+<li><p>One of type <code class="docutils literal notranslate"><span class="pre">double</span></code>, assign to this variable a number between 5 and 6.</p></li>
+<li><p>One of type <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, its value should be <code class="docutils literal notranslate"><span class="pre">true</span></code> if this homework is hard and <code class="docutils literal notranslate"><span class="pre">false</span></code> if this homework is easy. (Assign the value based on what you think of the homework now, we will change this value throughout this homework).</p></li>
+</ul>
+</li>
+<li><p><strong>Arithmetic Operations</strong><br />
+Using the variable of type <code class="docutils literal notranslate"><span class="pre">double</span></code> from the previous question, use arithmetic operations and assignment operators to change the value of the variable to the number <code class="docutils literal notranslate"><span class="pre">42.2</span></code>.<br />
+Try using the variables you already made to do these operations. For example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">56</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.5</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.7</span><span class="p">;</span><span class="w"> </span><span class="c1">// if you print b it will be equal to 42.2</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Repeat Arithmetic Operations</strong><br />
+Repeat question 4 two more times with your original numbers. Get creative! (Can you do it in only 1 line of code? Can you do it with the help of the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator? Can you use all operators and assignment operators?)</p></li>
+<li><p><strong>Casting and Rounding</strong><br />
+Use casting methods to assign the value of your variable of type <code class="docutils literal notranslate"><span class="pre">double</span></code> to a variable of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. Do this twice:</p>
+<ul class="simple">
+<li><p>The first time, round the value to <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p></li>
+<li><p>The second time, round it to <code class="docutils literal notranslate"><span class="pre">43</span></code>.</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">27.2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="c1">// b will equal 27</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// c will equal 28</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Casting with Arithmetic</strong><br />
+Use casting methods and arithmetic operators to create a new variable of type <code class="docutils literal notranslate"><span class="pre">double</span></code> for your age using the variable of type <code class="docutils literal notranslate"><span class="pre">int</span></code> for your age. (What happens when we give the two variables the same name?)</p>
+<p>For example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">iddoAge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">iddosAge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">iddoAge</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.75</span><span class="p">;</span><span class="w"> </span><span class="c1">// I am born in October so I am ¾ way to my 24th</span>
+<span class="c1">// iddosAge should now be 23.75</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Boolean Update</strong><br />
+Was this homework difficult? Change the value of the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> variable we initialized earlier to reflect your feelings.</p></li>
+<li><p><strong>BONUS (will be part of Unit 2 Homework Lab)</strong><br />
+In your program, output the following with the help of escape sequences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Pikachu welcomes you to the world of Pokemon!
+(\__/)
+(o^.^)
+z(_(“)(“)
+</pre></div>
+</div>
+<p>(Question taken from TEALS program)</p>
+</li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./APCSA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Unit 1 - Hello World and Primitive Data Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">Hello World</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-errors">Runtime Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-errors-bugs">Logical Errors (bugs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-errors">Avoiding Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-data-types">Variables and Data Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-and-assignment-statements">Expressions and Assignment Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operators">Arithmetic Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-operators-consist-of">The arithmetic operators consist of:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-assignment-operators">Compound Assignment Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-compound-operators">Common compound operators:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#increment-and-decrement-operators">Increment and Decrement Operators:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-and-ranges-of-variables">Casting and Ranges of Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widening-casting-automatic">Widening Casting (Automatic):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narrowing-casting-manual">Narrowing Casting (Manual):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-escape-sequences">Common escape sequences:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iddo Sadeh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
