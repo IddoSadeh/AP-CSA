@@ -6,4 +6,7 @@ root: intro
 chapters:
   - file: APCSA/introduction
   - file: APCSA/primitiveTypes
+  - file: APCSA/objects
+  - file: APCSA/booleans
+  - file: APCSA/loops
 
