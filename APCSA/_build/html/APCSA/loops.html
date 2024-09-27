@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Unit 4: Iteration and Loops &#8212; AP CSA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'APCSA/loops';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AP CSA</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitiveTypes.html">Unit 1 - Hello World and Primitive Data Types</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA/issues/new?title=Issue%20on%20page%20%2FAPCSA/loops.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/APCSA/loops.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit 4: Iteration and Loops</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">Common Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loop-in-a-for-loop">Infinite Loop in a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-loops">Do-While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfall">Common Pitfall</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements">Break and Continue Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-example"><code class="docutils literal notranslate"><span class="pre">break</span></code> Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-example"><code class="docutils literal notranslate"><span class="pre">continue</span></code> Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-excercises">Homework Excercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">While Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">For Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-and-loops">Strings and Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Nested Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tracing-loops">Tracing Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-statements">Switch Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-questions">Extra Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runeston-excercises">Runeston Excercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-4-iteration-and-loops">
+<h1>Unit 4: Iteration and Loops<a class="headerlink" href="#unit-4-iteration-and-loops" title="Link to this heading">#</a></h1>
+<p>In the previous units, we focused on <strong>Boolean expressions</strong> and <strong>conditional statements</strong>, which allow programs to make decisions based on certain conditions. In this unit, we will introduce the concept of <strong>iteration</strong>, which allows you to repeat sections of code. This is particularly useful when you want to automate repetitive tasks. We will explore <strong>loops</strong>, which are control structures that repeatedly execute a block of code as long as a specified condition is true.</p>
+<section id="while-loops">
+<h2>While Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h2>
+<p>A <strong>while loop</strong> repeatedly executes a block of code as long as a specified Boolean expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>. The syntax is:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// code to be repeated</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Count is: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop continues to execute until <code class="docutils literal notranslate"><span class="pre">count</span></code> becomes 5.</p>
+</section>
+<section id="common-pitfalls">
+<h3>Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Infinite loops</strong>: Make sure the condition inside the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop will eventually become <code class="docutils literal notranslate"><span class="pre">false</span></code>. Otherwise, you will create an infinite loop where the program never stops.</p></li>
+</ul>
+<p>Example of an infinite loop:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Infinite loop!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// forgot to increment x</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="for-loops">
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h2>
+<p>A <strong>for loop</strong> is commonly used when the number of iterations is known beforehand. The syntax is:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="n">update</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// code to be repeated</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Iteration: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop consists of three parts:</p>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong>: This is executed once, at the start of the loop.</p></li>
+<li><p><strong>Condition</strong>: This is evaluated before each iteration. The loop continues if the condition is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Update</strong>: This is executed after each iteration.</p></li>
+</ol>
+</section>
+<section id="infinite-loop-in-a-for-loop">
+<h3>Infinite Loop in a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop<a class="headerlink" href="#infinite-loop-in-a-for-loop" title="Link to this heading">#</a></h3>
+<p>Just like with <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, make sure the condition will eventually become <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Infinite loop&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// forgot to update i</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="do-while-loops">
+<h2>Do-While Loops<a class="headerlink" href="#do-while-loops" title="Link to this heading">#</a></h2>
+<p>A <strong>do-while loop</strong> is similar to a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but it guarantees that the loop will execute at least once, even if the condition is false from the start. The syntax is:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// code to be repeated</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="id2">
+<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Count is: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this case, the block of code inside the <code class="docutils literal notranslate"><span class="pre">do</span></code> will be executed before the condition is checked.</p>
+</section>
+<section id="common-pitfall">
+<h3>Common Pitfall<a class="headerlink" href="#common-pitfall" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make sure that the condition can eventually become <code class="docutils literal notranslate"><span class="pre">false</span></code>, or you will create an infinite loop.</p></li>
+</ul>
+</section>
+</section>
+<section id="nested-loops">
+<h2>Nested Loops<a class="headerlink" href="#nested-loops" title="Link to this heading">#</a></h2>
+<p>Loops can be nested, meaning you can place one loop inside another. Nested loops are useful when working with multi-dimensional data structures like arrays.</p>
+<section id="id3">
+<h3>Example:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;i: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, j: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This example has an outer loop and an inner loop. For every iteration of the outer loop, the inner loop runs through all its iterations.</p>
+</section>
+</section>
+<section id="break-and-continue-statements">
+<h2>Break and Continue Statements<a class="headerlink" href="#break-and-continue-statements" title="Link to this heading">#</a></h2>
+<p>Sometimes you need more control over how a loop executes. You can use <code class="docutils literal notranslate"><span class="pre">break</span></code> to exit the loop early or <code class="docutils literal notranslate"><span class="pre">continue</span></code> to skip the rest of the loop body for the current iteration.</p>
+<section id="break-example">
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> Example:<a class="headerlink" href="#break-example" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">  </span><span class="c1">// exits the loop when i is 5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;i: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="continue-example">
+<h3><code class="docutils literal notranslate"><span class="pre">continue</span></code> Example:<a class="headerlink" href="#continue-example" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span><span class="w">  </span><span class="c1">// skips the rest of the loop body for even numbers</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Odd number: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Basic While Loop</strong><br />
+Write a program that prints the numbers from 1 to 10 using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Basic For Loop</strong><br />
+Modify the previous program to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop instead of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Countdown with a Do-While Loop</strong><br />
+Write a program that counts down from 5 to 1 using a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Nested Loops - Multiplication Table</strong><br />
+Write a program that prints a multiplication table for numbers from 1 to 5 using nested loops.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\t&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="homework-excercises">
+<h2>Homework Excercises<a class="headerlink" href="#homework-excercises" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>While Loops<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Use a while loop to print out 5 random numbers between 1 and 10.</p></li>
+<li><p>Generate a random number between 100 and 200. Use a while loop to find the sum of all the digits in the number. For example, for 123, the sum of digits is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">6</span></code>.</p></li>
+<li><p>Create a coin flip guessing game. Generate a random number between 0 and 1 (0 for heads and 1 for tails). Ask the user to guess the result of the coin flip. If the user is correct, let them know. If the user made the wrong guess, allow them another guess.</p></li>
+<li><p>Make a number guessing game.</p></li>
+</ol>
+</section>
+<section id="id5">
+<h3>For Loops<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="5">
+<li><p>Use a for loop to print out the numbers 7 through 19.</p></li>
+<li><p>Repeat question 5, but initialize the variable outside of the for loop and put the change statement in the body of the loop (similar to a while loop).</p></li>
+<li><p>Use a for loop to print all numbers from 1 to 5 in descending order (output should look like this: <code class="docutils literal notranslate"><span class="pre">54321</span></code>).</p></li>
+</ol>
+</section>
+<section id="strings-and-loops">
+<h3>Strings and Loops<a class="headerlink" href="#strings-and-loops" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="8">
+<li><p>Create a string variable with the phrase: <code class="docutils literal notranslate"><span class="pre">&quot;y0u</span> <span class="pre">can</span> <span class="pre">find</span> <span class="pre">m0re</span> <span class="pre">l00p</span> <span class="pre">practice</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">b00k&quot;</span></code>. Use a loop to replace all zeros with <code class="docutils literal notranslate"><span class="pre">o's</span></code>.</p></li>
+<li><p>Create a string variable with your name. Print the reverse spelling of your name using a loop.</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>Nested Loops<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="10">
+<li><p>Use a nested loop to print a 10x10 square of <code class="docutils literal notranslate"><span class="pre">*</span></code> signs.</p></li>
+<li><p>Use a nested loop to print a right-angled triangle of <code class="docutils literal notranslate"><span class="pre">*</span></code> signs.</p></li>
+<li><p>Use a nested loop to print an isosceles triangle.</p></li>
+</ol>
+</section>
+<section id="tracing-loops">
+<h3>Tracing Loops<a class="headerlink" href="#tracing-loops" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="13">
+<li><p>Complete the tracing exercises at:<br />
+<a class="reference external" href="https://runestone.academy/ns/books/published//csawesome/Unit4-Iteration/topic-4-5-loop-analysis.html">Loop Analysis</a></p></li>
+</ol>
+</section>
+<section id="switch-statements">
+<h3>Switch Statements<a class="headerlink" href="#switch-statements" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="14">
+<li><p>Create a program that prompts the user to enter a number between 1 and 7. For each number, print out its corresponding day of the week (Sunday = 1, Monday = 2, etc.).</p></li>
+</ol>
+</section>
+<section id="extra-questions">
+<h3>Extra Questions<a class="headerlink" href="#extra-questions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="15">
+<li><p>Have the user input 10 numbers. Use a loop to read the numbers and, at the end, output the largest number.</p></li>
+<li><p>The Social Insurance Number (SIN) is a 9-digit number used for various purposes in Canada. Create a program that prompts the user to enter their SIN and check whether it is valid (i.e., the entry has only digits, correct length, etc.).</p></li>
+<li><p>Compute Pi using the Leibniz formula. The more iterations you use in your loop, the more accurate the result.</p></li>
+</ol>
+</section>
+</section>
+<section id="runeston-excercises">
+<h2>Runeston Excercises<a class="headerlink" href="#runeston-excercises" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://runestone.academy/ns/books/published//csawesome/Unit4-Iteration/toctree.html">Runestone Unit 4</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./APCSA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">Common Pitfalls</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loop-in-a-for-loop">Infinite Loop in a <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-loops">Do-While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfall">Common Pitfall</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements">Break and Continue Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-example"><code class="docutils literal notranslate"><span class="pre">break</span></code> Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-example"><code class="docutils literal notranslate"><span class="pre">continue</span></code> Example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-excercises">Homework Excercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">While Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">For Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-and-loops">Strings and Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Nested Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tracing-loops">Tracing Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-statements">Switch Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-questions">Extra Questions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runeston-excercises">Runeston Excercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iddo Sadeh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

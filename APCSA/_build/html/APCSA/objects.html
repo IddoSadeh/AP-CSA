@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Unit 2 - Objects &#8212; AP CSA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'APCSA/objects';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AP CSA</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitiveTypes.html">Unit 1 - Hello World and Primitive Data Types</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA/issues/new?title=Issue%20on%20page%20%2FAPCSA/objects.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/APCSA/objects.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit 2 - Objects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-classes-and-objects">What are Classes and Objects?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-objects">Creating and Using Objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-notes-on-classes-and-objects">Key Notes on Classes and Objects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-class">String Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">Creating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math-class">Math Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-methods">Key Methods:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Additional Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Resources:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-2-objects">
+<h1>Unit 2 - Objects<a class="headerlink" href="#unit-2-objects" title="Link to this heading">#</a></h1>
+<p>This unit will introduce the concepts of classes and objects, and how they are used in Java. The unit will also cover the String class and the Math class, two essential parts of the Java standard library.</p>
+<section id="classes-and-objects">
+<h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Link to this heading">#</a></h2>
+<p>We dive more deeply into writing classes in chapter 5, the next section will give you a quick idea of what a class is so you have an easier time with the latter parts of this chapter.</p>
+<section id="what-are-classes-and-objects">
+<h3>What are Classes and Objects?<a class="headerlink" href="#what-are-classes-and-objects" title="Link to this heading">#</a></h3>
+<p>In object-oriented programming, a class is a blueprint for creating objects. An object is an instance of a class. In simpler terms, classes are user defined data types. Objects are variables of the new types.</p>
+<p>A class defines the properties (data) and behaviours (methods) that its objects will have. For example, a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class might have properties like <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">breed</span></code>, and <code class="docutils literal notranslate"><span class="pre">age</span></code>, and methods like <code class="docutils literal notranslate"><span class="pre">bark()</span></code>, <code class="docutils literal notranslate"><span class="pre">eat()</span></code>, and <code class="docutils literal notranslate"><span class="pre">sleep()</span></code>.</p>
+<p>Here’s how you might define a simple <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class in Java:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Properties (data)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">breed</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Constructor</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Dog</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">breed</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">breed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">breed</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Methods (behaviours)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bark</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Woof!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">food</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; is eating &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">food</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sleep</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; is sleeping.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">breed</span></code>, and <code class="docutils literal notranslate"><span class="pre">age</span></code> are private properties of the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class. They represent the data that a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> object can hold.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Dog(String</span> <span class="pre">name,</span> <span class="pre">String</span> <span class="pre">breed,</span> <span class="pre">int</span> <span class="pre">age)</span></code> function is a constructor. It is used to create new <code class="docutils literal notranslate"><span class="pre">Dog</span></code> objects and initialize their properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bark()</span></code>, <code class="docutils literal notranslate"><span class="pre">eat(String</span> <span class="pre">food)</span></code>, and <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> are public methods of the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class. They define the behaviours that a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> object can perform.</p></li>
+</ul>
+</section>
+<section id="creating-and-using-objects">
+<h3>Creating and Using Objects<a class="headerlink" href="#creating-and-using-objects" title="Link to this heading">#</a></h3>
+<p>Once you have a class defined, you can create objects (instances) of that class. Each object will have its own copy of the class’s properties and can call the class’s methods.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create a new Dog object named &quot;buddy&quot;</span>
+<span class="w">        </span><span class="n">Dog</span><span class="w"> </span><span class="n">buddy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Buddy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Golden Retriever&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Call methods on the &quot;buddy&quot; object</span>
+<span class="w">        </span><span class="n">buddy</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w"> </span><span class="c1">// Output: Woof!</span>
+<span class="w">        </span><span class="n">buddy</span><span class="p">.</span><span class="na">eat</span><span class="p">(</span><span class="s">&quot;bones&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: Buddy is eating bones</span>
+<span class="w">        </span><span class="n">buddy</span><span class="p">.</span><span class="na">sleep</span><span class="p">();</span><span class="w"> </span><span class="c1">// Output: Buddy is sleeping.</span>
+
+<span class="w">        </span><span class="c1">// Create another Dog object named &quot;lucy&quot;</span>
+<span class="w">        </span><span class="n">Dog</span><span class="w"> </span><span class="n">lucy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Lucy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Poodle&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Call a method on the &quot;lucy&quot; object</span>
+<span class="w">        </span><span class="n">lucy</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w"> </span><span class="c1">// Output: Woof!</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">buddy</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Dog(&quot;Buddy&quot;,</span> <span class="pre">&quot;Golden</span> <span class="pre">Retriever&quot;,</span> <span class="pre">3);</span></code> creates a new <code class="docutils literal notranslate"><span class="pre">Dog</span></code> object named <code class="docutils literal notranslate"><span class="pre">buddy</span></code> and initializes its properties with the given values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buddy.bark()</span></code>, <code class="docutils literal notranslate"><span class="pre">buddy.eat(&quot;bones&quot;)</span></code>, and <code class="docutils literal notranslate"><span class="pre">buddy.sleep()</span></code> call the respective methods on the <code class="docutils literal notranslate"><span class="pre">buddy</span></code> object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">lucy</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Dog(&quot;Lucy&quot;,</span> <span class="pre">&quot;Poodle&quot;,</span> <span class="pre">5);</span></code> creates another <code class="docutils literal notranslate"><span class="pre">Dog</span></code> object named <code class="docutils literal notranslate"><span class="pre">lucy</span></code> with different property values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lucy.bark()</span></code> calls the <code class="docutils literal notranslate"><span class="pre">bark()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">lucy</span></code> object.</p></li>
+</ol>
+</section>
+<section id="key-notes-on-classes-and-objects">
+<h3>Key Notes on Classes and Objects<a class="headerlink" href="#key-notes-on-classes-and-objects" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Overloading Constructors:</strong> You can have multiple constructors in a class with different parameters. This is called constructor overloading and allows for flexibility in creating objects.</p></li>
+<li><p><strong>Procedural Abstraction:</strong> When using a method, you don’t need to worry about the internal details of how it works. This is called procedural abstraction and simplifies code usage.</p></li>
+<li><p><strong>Tracing Methods:</strong> Understanding how methods work and the order in which they are executed is crucial for debugging and understanding program flow.</p></li>
+</ul>
+</section>
+</section>
+<section id="string-class">
+<h2>String Class<a class="headerlink" href="#string-class" title="Link to this heading">#</a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<p>The String class in Java represents a sequence (string) of characters (data of type char). It provides various methods for manipulating and working with strings.</p>
+</section>
+<section id="creating-strings">
+<h3>Creating Strings<a class="headerlink" href="#creating-strings" title="Link to this heading">#</a></h3>
+<p>There are two common ways to create strings in Java:</p>
+<ol class="arabic">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using string literals:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;World!&quot;</span><span class="p">;</span><span class="w"> </span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="string-methods">
+<h3>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h3>
+<p>The String class provides a rich set of methods for working with strings. Here are some key methods:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">charAt(int</span> <span class="pre">index)</span></code>: Returns the character at the specified index.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// c will be &#39;H&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">substring(int</span> <span class="pre">beginIndex,</span> <span class="pre">int</span> <span class="pre">endIndex)</span></code>: Returns a new string that is a substring of the original string, starting at <code class="docutils literal notranslate"><span class="pre">beginIndex</span></code> and ending at <code class="docutils literal notranslate"><span class="pre">endIndex</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// sub will be &quot;ell&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length()</span></code>: Returns the length of the string.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// len will be 5</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indexOf(String</span> <span class="pre">str)</span></code>: Returns the index of the first occurrence of the specified substring within the string. Returns -1 if the substring is not found.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;lo&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// index will be 3</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">equals(Object</span> <span class="pre">anObject)</span></code>: Compares the string to the specified object for equality. Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the strings are equal, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span><span class="w"> </span><span class="n">isEqual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// isEqual will be true</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contains(CharSequence</span> <span class="pre">s)</span></code>: Checks if the string contains the specified sequence of characters. Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the sequence is found, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;el&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// contains will be true</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">lyrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The wheels on the bus go round and round&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bus&quot;</span><span class="p">;</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">secondLetter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// secondLetter will be &#39;u&#39;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">wordIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyrics</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">word</span><span class="p">);</span><span class="w"> </span><span class="c1">// wordIndex will be 15</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">wordLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// wordLength will be 3</span>
+
+<span class="n">String</span><span class="w"> </span><span class="n">extractedWord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyrics</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">wordIndex</span><span class="p">,</span><span class="w"> </span><span class="n">wordIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">wordLength</span><span class="p">);</span><span class="w"> </span><span class="c1">// extractedWord will be &quot;bus&quot;</span>
+
+<span class="kt">boolean</span><span class="w"> </span><span class="n">areEqual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extractedWord</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">word</span><span class="p">);</span><span class="w"> </span><span class="c1">// areEqual will be true</span>
+<span class="kt">boolean</span><span class="w"> </span><span class="n">doesContain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyrics</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">extractedWord</span><span class="p">);</span><span class="w"> </span><span class="c1">// doesContain will be true</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-notes">
+<h3>Additional Notes:<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Immutability:</strong> Strings in Java are immutable, meaning their values cannot be changed after creation. Methods like <code class="docutils literal notranslate"><span class="pre">substring()</span></code> and <code class="docutils literal notranslate"><span class="pre">toUpperCase()</span></code> create new string objects instead of modifying the original string.</p></li>
+<li><p><strong>String Concatenation:</strong> You can concatenate strings using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span><span class="w"> </span><span class="c1">// combined will be &quot;Hello World!&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="resources">
+<h3>Resources:<a class="headerlink" href="#resources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For a complete list of String class methods, refer to the Java documentation: <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html</a></p></li>
+</ul>
+</section>
+</section>
+<section id="math-class">
+<h2>Math Class<a class="headerlink" href="#math-class" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Introduction<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Math</span></code> class in Java provides various mathematical functions and constants. It’s a static class, meaning you don’t need to create an object of the <code class="docutils literal notranslate"><span class="pre">Math</span></code> class to use its methods. You can directly call its methods using the class name, like <code class="docutils literal notranslate"><span class="pre">Math.method()</span></code>.</p>
+</section>
+<section id="key-methods">
+<h3>Key Methods:<a class="headerlink" href="#key-methods" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.random()</span></code>: Returns a random double value between 0.0 (inclusive) and 1.0 (exclusive).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">randomValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span><span class="w"> </span><span class="c1">// randomValue will be between 0.0 and 0.999...</span>
+</pre></div>
+</div>
+</li>
+<li><p>Generating Random Integers: You can generate random integers within a specific range using <code class="docutils literal notranslate"><span class="pre">Math.random()</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">randomInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// Random integer between 0 and 9</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.max(double</span> <span class="pre">a,</span> <span class="pre">double</span> <span class="pre">b)</span></code>: Returns the greater of the two given values.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"> </span><span class="c1">// max will be 20</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.min(double</span> <span class="pre">a,</span> <span class="pre">double</span> <span class="pre">b)</span></code>: Returns the smaller of the two given values.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"> </span><span class="c1">// min will be 10</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.abs(double</span> <span class="pre">a)</span></code>: Returns the absolute value of the given value.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">absValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// absValue will be 10</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.pow(double</span> <span class="pre">a,</span> <span class="pre">double</span> <span class="pre">b)</span></code>: Returns the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> raised to the power of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// power will be 8.0</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math.sqrt(double</span> <span class="pre">a)</span></code>: Returns the square root of the given value.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">sqrtValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span><span class="w"> </span><span class="c1">// sqrtValue will be 5.0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">randomDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Random double: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">randomDouble</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">randomInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Random integer between 1 and 10</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Random integer: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">randomInt</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">maxValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Max value: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">maxValue</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Additional Notes:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Constants:</strong> The <code class="docutils literal notranslate"><span class="pre">Math</span></code> class also provides mathematical constants like <code class="docutils literal notranslate"><span class="pre">Math.PI</span></code> (π) and <code class="docutils literal notranslate"><span class="pre">Math.E</span></code> (Euler’s number).</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Resources:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For a complete list of <code class="docutils literal notranslate"><span class="pre">Math</span></code> class methods and constants, refer to the Java documentation: <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html</a></p></li>
+</ul>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises:<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p><strong>Classes and Objects:</strong></p>
+<ol class="arabic simple">
+<li><p>Create a class of your choice (e.g., <code class="docutils literal notranslate"><span class="pre">Book</span></code>, <code class="docutils literal notranslate"><span class="pre">VideoGameCharacter</span></code>) with at least five methods. Test your code by creating objects of the class and calling its methods.</p></li>
+<li><p>Add a default constructor to the class you created in the previous exercise.</p></li>
+<li><p>Add a method to your class that takes mathematical arguments and returns a calculated value.</p></li>
+</ol>
+<p><strong>Strings:</strong></p>
+<ol class="arabic simple">
+<li><p>Create two strings: one containing song lyrics and another containing a word that appears in the lyrics.</p></li>
+<li><p>Print the second letter of the word using both <code class="docutils literal notranslate"><span class="pre">charAt()</span></code> and <code class="docutils literal notranslate"><span class="pre">substring()</span></code> methods.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">indexOf()</span></code> to find the first occurrence of the word in the lyrics and store the index in an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">length()</span></code> to find the length of the word and store it in an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable.</p></li>
+<li><p>Create a new string variable and extract the word from the lyrics using the <code class="docutils literal notranslate"><span class="pre">substring()</span></code> method, the index, and the length you found in the previous steps.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method to check if the extracted word is the same as the original word. Verify your answer using a print statement.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">contains()</span></code> method to check if the lyrics contain the extracted word. Verify your answer using a print statement.</p></li>
+</ol>
+<p><strong>Math:</strong></p>
+<ol class="arabic simple">
+<li><p>Print the maximum and minimum values of the <code class="docutils literal notranslate"><span class="pre">int</span></code> data type.</p></li>
+<li><p>Generate and display two random numbers.</p></li>
+<li><p>Simulate a dice roll and display the result using a print statement.</p></li>
+</ol>
+<p>Remember to test your code thoroughly and refer to the resources provided for more information and examples.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./APCSA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-classes-and-objects">What are Classes and Objects?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-objects">Creating and Using Objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-notes-on-classes-and-objects">Key Notes on Classes and Objects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-class">String Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">Creating Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math-class">Math Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-methods">Key Methods:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Additional Notes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Resources:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iddo Sadeh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
