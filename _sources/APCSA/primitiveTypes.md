@@ -4,7 +4,7 @@ The assumption is that you have your development environment set up by now.
 
 ## Hello World
 
-Your first task is to create a file `Main.java` in VScode and run the following code:
+Your first task is to create a file `Main.java` in VScode and run the following code :
 
 ```
 public class Main{

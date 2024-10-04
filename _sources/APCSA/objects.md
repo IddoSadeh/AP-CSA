@@ -255,7 +255,7 @@ System.out.println("Max value: " + maxValue);
 
 **Classes and Objects:**
 
-1.  Create a class of your choice (e.g., `Book`, `VideoGameCharacter`) with at least five methods. Test your code by creating objects of the class and calling its methods.
+1.  Create a class of your choice (e.g., `Book`, `VideoGameCharacter`) with at least five methods.Test your code by creating objects of the class and calling its methods.
 2.  Add a default constructor to the class you created in the previous exercise.
 3.  Add a method to your class that takes mathematical arguments and returns a calculated value.
 
