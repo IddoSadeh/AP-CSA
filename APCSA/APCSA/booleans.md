@@ -233,9 +233,8 @@ String name = scanner.nextLine();
 1. **Boolean Expressions**:  
    Using the Math class, assign a random number between 1 and 10 to an `int` variable. Print the number, then check if the number is even or odd (print `true` for even, `false` for odd). Use the `%` operator and the `==` operator in your code.
    
-2. **Conditional Expressions
-
-**:  
+2. **Conditional Expression** 
+ 
    Repeat the previous task but use an `if-else` statement to print whether the number is even or odd.
 
 3. **Nested Conditionals**:  

@@ -2,7 +2,7 @@
 
 Generally the best resource i've found for the AP CSA exam is [Runestones CSAwesome](https://runestone.academy/ns/books/published/csawesome/index.html).
 
-This text is a compilation of my teaching material. I make several changes to the Runestone textbook that I believe are necessary for a more holistic learning experiences:
+This text is a compilation of my teaching material. I make several changes to the Runestone textbook that I believe are necessary for a more holistic learning experiences :
 
 - I tend to replace the labs, sections about the turtle class, and GUI exercises with my own material that requires students to leave the sterile environment of Runestone and code on their personal computer.
 - The course has 10 chapters, I usually teach chapter 5 twice. A superficial run before teaching Chapter 2, and an in depth run in its natural order. I also add a lesson about the Scanner class after chapter 2 to allow students to build code that accepts input.

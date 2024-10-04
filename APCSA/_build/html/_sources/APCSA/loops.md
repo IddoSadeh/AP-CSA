@@ -220,7 +220,7 @@ for (int i = 0; i < 10; i++) {
 
 ### Extra Questions
 
-15. Have the user input 10 numbers. Use a loop to read the numbers and, at the end, output the largest number.
+15. Have the user input 10 numbers. Use a loop to read the numbers and, at the end, output the largest number .
 
 16. The Social Insurance Number (SIN) is a 9-digit number used for various purposes in Canada. Create a program that prompts the user to enter their SIN and check whether it is valid (i.e., the entry has only digits, correct length, etc.).
 
