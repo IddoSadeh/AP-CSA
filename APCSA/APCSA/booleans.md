@@ -233,15 +233,15 @@ String name = scanner.nextLine();
 1. **Boolean Expressions**:  
    Using the Math class, assign a random number between 1 and 10 to an `int` variable. Print the number, then check if the number is even or odd (print `true` for even, `false` for odd). Use the `%` operator and the `==` operator in your code.
    
-2. **Conditional Expression** 
+2. **Fizz Buzz** 
  
-   Repeat the previous task but use an `if-else` statement to print whether the number is even or odd.
+   Scan a number from your user and print out fizz if it is divisible by 3, buzz if it is divisible by 5, and fizzbuzz if it is divisible by both. Print out the original number if none of the above conditions are met.
 
 3. **Nested Conditionals**:  
-   Add a nested `if` statement to the code in question 2. Check if the number is divisible by 3 as well. Print whether it is divisible by 3.
+   Add a nested `if` statement to the code in question 1. Check if the number is divisible by 3 as well. Print whether it is divisible by 3.
 
 4. **Random Number with Multiple Conditions**:  
-   Generate a random number between -10 and 10. If the number is positive, check if it is even, odd, and divisible by 3. If the number is zero, print that it is zero. If negative, print that it's negative and display its absolute value.
+   Generate a random number between -10 and 10. If the number is positive, check if it is even or odd, and whether divisible by 3. If the number is zero, print that it is zero. If negative, print that it's negative and display its absolute value.
 
 5. **Compound Boolean Expressions**:  
    Generate a random number between 1 and 10. Use compound Boolean expressions to check if it is divisible by 2 and 3, just 2, just 3, or neither. Print the results.
