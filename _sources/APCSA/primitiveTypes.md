@@ -271,7 +271,7 @@ System.out.println("Hello\nWorld"); // Prints "Hello" on one line and "World" on
 
 All questions should be done in the same program file. Please try and complete the lab without help from online resources!
 
-For more questions and a unit summary please visitn [CSAwesome](https://runestone.academy/ns/books/published/csawesome/Unit1-Getting-Started/toctree.html)
+For more questions and a unit summary please visit [CSAwesome](https://runestone.academy/ns/books/published/csawesome/Unit1-Getting-Started/toctree.html)
 
 1. **Multiline Comment**  
    Using a multiline comment (`/*` to start the comment and `*/` to end the comment), write the name of the file, your name, and the date on separate lines.  

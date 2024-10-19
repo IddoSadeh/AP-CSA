@@ -8,7 +8,7 @@ This text is a compilation of my teaching material. I make several changes to th
 - The course has 10 chapters, I usually teach chapter 5 twice. A superficial run before teaching Chapter 2, and an in depth run in its natural order. I also add a lesson about the Scanner class after chapter 2 to allow students to build code that accepts input.
 
 A student that wishes to do well, should attempt to run each piece of code introduced here and in the Runestone textbook in their IDE (integrated development environment of choice). 
-
+ 
 
 ## The exam
 
