@@ -183,7 +183,7 @@ for (int i = 0; i < 10; i++) {
 
 2. Generate a random number between 100 and 200. Use a while loop to find the sum of all the digits in the number. For example, for 123, the sum of digits is `1 + 2 + 3 = 6`.
 
-3. Create a coin flip guessing game. Generate a random number between 0 and 1 (0 for heads and 1 for tails). Ask the user to guess the result of the coin flip. If the user is correct, let them know. If the user made the wrong guess, allow them another guess.
+3. Create a dice rolle guessing game. Generate a random number between 1 and 6. Ask the user to guess the result of the coin flip. If the user is correct, let them know. If the user made the wrong guess, allow them another guess.
 
 4. Make a number guessing game.
 

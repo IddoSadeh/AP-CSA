@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Unit 8: 2D Arrays &#8212; AP CSA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'APCSA/twoDarrays';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 9: Inheritance" href="inheritance.html" />
+    <link rel="prev" title="Unit 7: ArrayLists" href="arrayLists.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AP CSA</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitiveTypes.html">Unit 1 - Hello World and Primitive Data Types</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Unit 2 - Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="booleans.html">Unit 3: Boolean Expressions and Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Unit 5: Classes and Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">Unit 4: Iteration and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays.html">Unit 6: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrayLists.html">Unit 7: ArrayLists</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 8: 2D Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inheritance.html">Unit 9: Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recursion.html">Unit 10: Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swing.html">Lab: Introduction to Swing GUI and Building Cross-Platform Applications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA/issues/new?title=Issue%20on%20page%20%2FAPCSA/twoDarrays.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/APCSA/twoDarrays.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Unit 8: 2D Arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-2d-array">What is a 2D Array?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-real-world-applications-of-2d-arrays">Example: Real-World Applications of 2D Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-major-and-column-major-arrays">Row Major and Column Major Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-and-creating-2d-arrays">Declaring and Creating 2D Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-a-2d-array">Declaring a 2D Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-2d-array">Creating a 2D Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-and-creating-a-2d-array-together">Declaring and Creating a 2D Array Together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values-in-2d-arrays">Default Values in 2D Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-values-in-a-2d-array">Setting Values in a 2D Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-multiple-values-at-once">Setting Multiple Values at Once</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values-in-a-2d-array">Accessing Values in a 2D Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-2d-arrays">Traversing 2D Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-lengths-in-2d-arrays">Array Lengths in 2D Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-nested-loops-to-traverse-a-2d-array">Using Nested Loops to Traverse a 2D Array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-exercises">Homework Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runestone-exercises">Runestone Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-8-2d-arrays">
+<h1>Unit 8: 2D Arrays<a class="headerlink" href="#unit-8-2d-arrays" title="Link to this heading">#</a></h1>
+<p>In the previous unit, we learned about <strong>ArrayLists</strong>, which allow us to manage collections of data that can dynamically grow or shrink. In this unit, we will explore <strong>2D arrays</strong>, which are essentially arrays of arrays. <strong>2D arrays</strong> are often used to represent grids, tables, or matrices, and are useful when working with multi-dimensional data structures.</p>
+<section id="what-is-a-2d-array">
+<h2>What is a 2D Array?<a class="headerlink" href="#what-is-a-2d-array" title="Link to this heading">#</a></h2>
+<p>A <strong>2D array</strong> in Java is an array that contains other arrays as its elements. It is commonly used to store data in a <strong>matrix format</strong>, where data is organized in rows and columns. Each element of the array can be accessed using two indices: one for the row and one for the column.</p>
+<section id="example-real-world-applications-of-2d-arrays">
+<h3>Example: Real-World Applications of 2D Arrays<a class="headerlink" href="#example-real-world-applications-of-2d-arrays" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Storing a user database</strong>: A row might store the username, while the second column stores the corresponding password.</p></li>
+<li><p><strong>Game boards</strong>: Representing a chessboard or a grid-based game like Tic-Tac-Toe.</p></li>
+</ul>
+</section>
+<section id="row-major-and-column-major-arrays">
+<h3>Row Major and Column Major Arrays<a class="headerlink" href="#row-major-and-column-major-arrays" title="Link to this heading">#</a></h3>
+<p>There are two common ways to store data in a 2D array:</p>
+<ul class="simple">
+<li><p><strong>Row-major order</strong>: Data is stored row by row (Java uses row-major order).</p></li>
+<li><p><strong>Column-major order</strong>: Data is stored column by column (not used in Java but important in other languages like Fortran).</p></li>
+</ul>
+</section>
+</section>
+<section id="declaring-and-creating-2d-arrays">
+<h2>Declaring and Creating 2D Arrays<a class="headerlink" href="#declaring-and-creating-2d-arrays" title="Link to this heading">#</a></h2>
+<section id="declaring-a-2d-array">
+<h3>Declaring a 2D Array<a class="headerlink" href="#declaring-a-2d-array" title="Link to this heading">#</a></h3>
+<p>To declare a 2D array, specify the type of elements that will be stored, followed by two sets of square brackets <code class="docutils literal notranslate"><span class="pre">[][]</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>At this point, the array is declared, but it has not been created yet. Arrays in Java are objects, so the variable only holds a reference to the array object.</p>
+</section>
+<section id="creating-a-2d-array">
+<h3>Creating a 2D Array<a class="headerlink" href="#creating-a-2d-array" title="Link to this heading">#</a></h3>
+<p>To create a 2D array, use the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword, followed by the data type and the size of both dimensions (rows and columns):</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// 3x3 matrix</span>
+</pre></div>
+</div>
+<p>This creates a 3x3 2D array of integers. The first number represents the number of rows, and the second number represents the number of columns.</p>
+</section>
+<section id="declaring-and-creating-a-2d-array-together">
+<h3>Declaring and Creating a 2D Array Together<a class="headerlink" href="#declaring-and-creating-a-2d-array-together" title="Link to this heading">#</a></h3>
+<p>You can combine the declaration and creation of a 2D array into one line:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="default-values-in-2d-arrays">
+<h3>Default Values in 2D Arrays<a class="headerlink" href="#default-values-in-2d-arrays" title="Link to this heading">#</a></h3>
+<p>When a 2D array is created:</p>
+<ul class="simple">
+<li><p><strong>Numeric types</strong> (like <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">double</span></code>) are initialized to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>Boolean types</strong> are initialized to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>Object references</strong> (like <code class="docutils literal notranslate"><span class="pre">String</span></code>) are initialized to <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="setting-values-in-a-2d-array">
+<h2>Setting Values in a 2D Array<a class="headerlink" href="#setting-values-in-a-2d-array" title="Link to this heading">#</a></h2>
+<p>You can assign values to specific elements in a 2D array by specifying the row and column indices:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Assigns 1 to the first row, first column</span>
+<span class="n">matrix</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">  </span><span class="c1">// Assigns 9 to the second row, third column</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-multiple-values-at-once">
+<h2>Setting Multiple Values at Once<a class="headerlink" href="#setting-multiple-values-at-once" title="Link to this heading">#</a></h2>
+<p>You can also initialize a 2D array with predefined values when it is created:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>In this example, the 2D array is initialized with specific values for each element.</p>
+</section>
+<section id="accessing-values-in-a-2d-array">
+<h2>Accessing Values in a 2D Array<a class="headerlink" href="#accessing-values-in-a-2d-array" title="Link to this heading">#</a></h2>
+<p>To retrieve a value from a 2D array, specify the row and column indices:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// Retrieves the element in the third row, second column</span>
+</pre></div>
+</div>
+</section>
+<section id="traversing-2d-arrays">
+<h2>Traversing 2D Arrays<a class="headerlink" href="#traversing-2d-arrays" title="Link to this heading">#</a></h2>
+<section id="array-lengths-in-2d-arrays">
+<h3>Array Lengths in 2D Arrays<a class="headerlink" href="#array-lengths-in-2d-arrays" title="Link to this heading">#</a></h3>
+<p>A 2D array has both a <strong>row length</strong> and a <strong>column length</strong>. You can access the length of the outer array (the number of rows) and the length of the inner arrays (the number of columns) using the <code class="docutils literal notranslate"><span class="pre">length</span></code> property:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">         </span><span class="c1">// Number of rows</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">      </span><span class="c1">// Number of columns in the first row</span>
+</pre></div>
+</div>
+</section>
+<section id="using-nested-loops-to-traverse-a-2d-array">
+<h3>Using Nested Loops to Traverse a 2D Array<a class="headerlink" href="#using-nested-loops-to-traverse-a-2d-array" title="Link to this heading">#</a></h3>
+<p>To traverse a 2D array and access each element, you can use a <strong>nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</strong>. The outer loop iterates over the rows, and the inner loop iterates over the columns:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w">  </span><span class="c1">// New line after each row</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will print out each element of the 2D array in a grid format.</p>
+</section>
+</section>
+<section id="homework-exercises">
+<h2>Homework Exercises<a class="headerlink" href="#homework-exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Create a 2D Integer Array</strong></p>
+<ul class="simple">
+<li><p>Create a 3x3 integer array and store the numbers 1 to 9 in it.</p></li>
+<li><p>Print the array using nested loops.</p></li>
+</ul>
+</li>
+<li><p><strong>Boolean 2D Array</strong></p>
+<ul class="simple">
+<li><p>Create a 1x2 2D boolean array and store <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> in it.</p></li>
+<li><p>Print the array using nested loops.</p></li>
+</ul>
+</li>
+<li><p><strong>String 2D Array for Grades</strong></p>
+<ul class="simple">
+<li><p>Create a 2D String array to store your grades for different subjects.</p></li>
+<li><p>Find the average of all your grades and print it.</p></li>
+</ul>
+</li>
+<li><p><strong>Array Length and Traversal</strong></p>
+<ul class="simple">
+<li><p>Create a 5x5 2D array where each element is the sum of its row and column indices.</p></li>
+<li><p>Print the array and its dimensions.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="runestone-exercises">
+<h2>Runestone Exercises<a class="headerlink" href="#runestone-exercises" title="Link to this heading">#</a></h2>
+<p>To practice further and explore the concepts from this unit, complete the exercises in Runestone’s Unit 8:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://runestone.academy/ns/books/published//csawesome/Unit8-2DArray/toctree.html">Runestone Unit 8 Exercises</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./APCSA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="arrayLists.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Unit 7: ArrayLists</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="inheritance.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 9: Inheritance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-2d-array">What is a 2D Array?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-real-world-applications-of-2d-arrays">Example: Real-World Applications of 2D Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-major-and-column-major-arrays">Row Major and Column Major Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-and-creating-2d-arrays">Declaring and Creating 2D Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-a-2d-array">Declaring a 2D Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-2d-array">Creating a 2D Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-and-creating-a-2d-array-together">Declaring and Creating a 2D Array Together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values-in-2d-arrays">Default Values in 2D Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-values-in-a-2d-array">Setting Values in a 2D Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-multiple-values-at-once">Setting Multiple Values at Once</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-values-in-a-2d-array">Accessing Values in a 2D Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-2d-arrays">Traversing 2D Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-lengths-in-2d-arrays">Array Lengths in 2D Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-nested-loops-to-traverse-a-2d-array">Using Nested Loops to Traverse a 2D Array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-exercises">Homework Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runestone-exercises">Runestone Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iddo Sadeh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

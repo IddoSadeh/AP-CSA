@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab: Introduction to Swing GUI and Building Cross-Platform Applications &#8212; AP CSA</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'APCSA/swing';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Unit 10: Recursion" href="recursion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AP CSA</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitiveTypes.html">Unit 1 - Hello World and Primitive Data Types</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Unit 2 - Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="booleans.html">Unit 3: Boolean Expressions and Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">Unit 4: Iteration and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays.html">Unit 6: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrayLists.html">Unit 7: ArrayLists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inheritance.html">Unit 9: Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recursion.html">Unit 10: Recursion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab: Introduction to Swing GUI and Building Cross-Platform Applications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/IddoSadeh/APCSA/issues/new?title=Issue%20on%20page%20%2FAPCSA/swing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/APCSA/swing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab: Introduction to Swing GUI and Building Cross-Platform Applications</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-building-a-basic-swing-application">Part 1: Building a Basic Swing Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-swing">What is Swing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-swing">Key Components of Swing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-guide-to-building-a-gui">Step-by-Step Guide to Building a GUI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-your-project">Step 1: Set Up Your Project</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-main-window-jframe">Step 2: Create the Main Window (JFrame)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-components-label-and-button">Step 3: Adding Components (Label and Button)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-adding-event-handling-button-click">Step 4: Adding Event Handling (Button Click)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-cross-platform-look-and-feel">Step 5: Cross-Platform Look and Feel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-packaging-and-distributing-the-application">Part 2: Packaging and Distributing the Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-package-software">What Does It Mean to Package Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-an-installer">Why Do We Need an Installer?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compilation-what-is-it">Step 1: Compilation – What Is It?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-your-program">Compiling Your Program</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-runnable-jar-file">Step 2: Creating a Runnable JAR File</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-jar-file">Creating a JAR File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-converting-to-a-windows-executable-exe">Step 3: Converting to a Windows Executable (.exe)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-launch4j-for-windows">Using Launch4j for Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-instructions">Step-by-Step Instructions:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-creating-macos-and-linux-installers-with-jpackage">Step 4: Creating macOS and Linux Installers with jpackage</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-jpackage">Why Use jpackage?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-creating-an-installer-for-windows-macos-or-linux">Example: Creating an Installer for Windows, macOS, or Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Explanation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bundling-the-jre-with-jpackage">Bundling the JRE with jpackage</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-creating-an-installer-why-do-you-need-one">Step 5: Creating an Installer – Why Do You Need One?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-inno-setup-to-create-a-windows-installer">Using Inno Setup to Create a Windows Installer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-introduction-to-swing-gui-and-building-cross-platform-applications">
+<h1>Lab: Introduction to Swing GUI and Building Cross-Platform Applications<a class="headerlink" href="#lab-introduction-to-swing-gui-and-building-cross-platform-applications" title="Link to this heading">#</a></h1>
+<p>In this lab, you will learn how to create a basic GUI application using the Java Swing library. After building the GUI, you will take it a step further by learning how to package your application into a standalone executable that users can run on their computers—without needing to interact with code or have a Java environment installed.</p>
+<section id="part-1-building-a-basic-swing-application">
+<h2>Part 1: Building a Basic Swing Application<a class="headerlink" href="#part-1-building-a-basic-swing-application" title="Link to this heading">#</a></h2>
+<section id="what-is-swing">
+<h3>What is Swing?<a class="headerlink" href="#what-is-swing" title="Link to this heading">#</a></h3>
+<p><strong>Swing</strong> is a part of Java’s standard library (<code class="docutils literal notranslate"><span class="pre">javax.swing</span></code> package). It provides a set of components (like buttons, labels, text fields) that allow developers to create <strong>Graphical User Interfaces (GUIs)</strong>. Swing is lightweight and platform-independent, meaning you can run the same Swing application on multiple operating systems like Windows, macOS, and Linux without changing your code.</p>
+</section>
+<section id="key-components-of-swing">
+<h3>Key Components of Swing:<a class="headerlink" href="#key-components-of-swing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>JFrame</strong>: The window of the application where all GUI components will reside.</p></li>
+<li><p><strong>JPanel</strong>: A container that can hold multiple GUI components (like buttons, labels, etc.).</p></li>
+<li><p><strong>JLabel</strong>: A simple component that displays text.</p></li>
+<li><p><strong>JButton</strong>: A button that the user can click, triggering an action.</p></li>
+</ul>
+</section>
+<section id="step-by-step-guide-to-building-a-gui">
+<h3>Step-by-Step Guide to Building a GUI<a class="headerlink" href="#step-by-step-guide-to-building-a-gui" title="Link to this heading">#</a></h3>
+<p>In this section, we will create a simple Swing application with a button and a label. When the button is clicked, the label’s text will change.</p>
+<section id="step-1-set-up-your-project">
+<h4>Step 1: Set Up Your Project<a class="headerlink" href="#step-1-set-up-your-project" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Create a New Java Class</strong>: Start by creating a new Java class, e.g., <code class="docutils literal notranslate"><span class="pre">SimpleApp.java</span></code>. This class will contain the code for our application.</p></li>
+<li><p><strong>Import Swing Packages</strong>: Add the necessary import statements for the Swing and AWT (Abstract Window Toolkit) components.</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">javax.swing.*</span><span class="p">;</span><span class="w">   </span><span class="c1">// Swing components like JFrame, JPanel, JLabel, JButton</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.*</span><span class="p">;</span><span class="w">      </span><span class="c1">// For layout management</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.event.*</span><span class="p">;</span><span class="w"> </span><span class="c1">// For handling button clicks</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-main-window-jframe">
+<h4>Step 2: Create the Main Window (JFrame)<a class="headerlink" href="#step-2-create-the-main-window-jframe" title="Link to this heading">#</a></h4>
+<p>We will create the <strong>main window</strong> of the app using the <code class="docutils literal notranslate"><span class="pre">JFrame</span></code> class. The <code class="docutils literal notranslate"><span class="pre">JFrame</span></code> will be the base window that holds all other components like buttons and labels.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create the main window (JFrame)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createAndShowGUI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create a JFrame instance with a title</span>
+<span class="w">        </span><span class="n">JFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;Simple Swing App&quot;</span><span class="p">);</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c1">// Set the size of the window</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c1">// Specify the action for the close button</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c1">// Make the window visible</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Schedule a job for the event-dispatching thread to create and show the GUI</span>
+<span class="w">        </span><span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">createAndShowGUI</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="explanation">
+<h3>Explanation:<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>JFrame</strong>: The main window of the GUI.</p></li>
+<li><p><strong>setSize(300, 200)</strong>: Defines the size of the window (300 pixels wide, 200 pixels tall).</p></li>
+<li><p><strong>setDefaultCloseOperation</strong>: Ensures the application exits when the user closes the window.</p></li>
+<li><p><strong>SwingUtilities.invokeLater</strong>: Ensures the GUI is created on the event-dispatching thread, which is necessary for thread safety in Java GUIs.</p></li>
+</ul>
+<section id="step-3-adding-components-label-and-button">
+<h4>Step 3: Adding Components (Label and Button)<a class="headerlink" href="#step-3-adding-components-label-and-button" title="Link to this heading">#</a></h4>
+<p>Next, we will add a <strong>JLabel</strong> (a simple text field) and a <strong>JButton</strong> (a clickable button) to the window. These components will reside inside a <strong>JPanel</strong>, which is used to manage the layout of components.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createAndShowGUI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">JFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;Simple Swing App&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create a label and a button</span>
+<span class="w">        </span><span class="n">JLabel</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Click the button to change this text.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Click Me&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create a panel to hold the components</span>
+<span class="w">        </span><span class="n">JPanel</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JPanel</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Add the label and button to the panel</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Add the panel to the frame</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Make the window visible</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">createAndShowGUI</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h3>Explanation:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>JLabel</strong>: Displays static text (which can later be changed).</p></li>
+<li><p><strong>JButton</strong>: A clickable button that we will later attach an event handler to.</p></li>
+<li><p><strong>JPanel</strong>: A container to which we can add multiple components (the label and button).</p></li>
+</ul>
+<section id="step-4-adding-event-handling-button-click">
+<h4>Step 4: Adding Event Handling (Button Click)<a class="headerlink" href="#step-4-adding-event-handling-button-click" title="Link to this heading">#</a></h4>
+<p>We want the button to perform an action when it is clicked—specifically, we will change the text of the label. To do this, we need to add an <strong>ActionListener</strong> to the button.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createAndShowGUI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">JFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;Simple Swing App&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JLabel</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Click the button to change this text.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Click Me&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JPanel</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JPanel</span><span class="p">();</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Add an ActionListener to the button</span>
+<span class="w">        </span><span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ActionListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Change the label&#39;s text when the button is clicked</span>
+<span class="w">                </span><span class="n">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Button clicked! Text changed.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">createAndShowGUI</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h3>Explanation:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>ActionListener</strong>: An interface used to handle events such as button clicks.</p></li>
+<li><p><strong>actionPerformed</strong>: The method that will be executed when the button is clicked. In this case, it changes the text of the label.</p></li>
+</ul>
+<section id="step-5-cross-platform-look-and-feel">
+<h4>Step 5: Cross-Platform Look and Feel<a class="headerlink" href="#step-5-cross-platform-look-and-feel" title="Link to this heading">#</a></h4>
+<p>To ensure that the application looks consistent across different operating systems, we can use the <strong>UIManager</strong> to set the “look and feel” to match the native system’s appearance.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createAndShowGUI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Set cross-platform look and feel</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">UIManager</span><span class="p">.</span><span class="na">setLookAndFeel</span><span class="p">(</span><span class="n">UIManager</span><span class="p">.</span><span class="na">getSystemLookAndFeelClassName</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">JFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;Simple Swing App&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JLabel</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Click the button to change this text.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">JButton</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Click Me&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JPanel</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JPanel</span><span class="p">();</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+<span class="w">        </span><span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Button clicked! Text changed.&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
+<span class="w">        </span><span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SwingUtilities</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">createAndShowGUI</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="part-2-packaging-and-distributing-the-application">
+<h2>Part 2: Packaging and Distributing the Application<a class="headerlink" href="#part-2-packaging-and-distributing-the-application" title="Link to this heading">#</a></h2>
+<section id="what-does-it-mean-to-package-software">
+<h3>What Does It Mean to Package Software?<a class="headerlink" href="#what-does-it-mean-to-package-software" title="Link to this heading">#</a></h3>
+<p>After developing a Java application, you need to package it for distribution so that users can easily install and run it without having to know how to compile or run Java code. Packaging involves multiple steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Compiling</strong> the Java source code into bytecode (using the Java compiler).</p></li>
+<li><p><strong>Bundling</strong> that bytecode and other resources into a runnable format, such as a JAR file or a native executable.</p></li>
+<li><p><strong>Creating an installer</strong> to manage the installation, configuration, and uninstallation on different operating systems.</p></li>
+</ol>
+</section>
+<section id="why-do-we-need-an-installer">
+<h3>Why Do We Need an Installer?<a class="headerlink" href="#why-do-we-need-an-installer" title="Link to this heading">#</a></h3>
+<p>An <strong>installer</strong> simplifies the process of installing software for end-users by:</p>
+<ul class="simple">
+<li><p><strong>Setting up everything needed</strong> to run the app, such as placing files in the correct locations (e.g., program files, user directories).</p></li>
+<li><p><strong>Handling dependencies</strong>, like bundling the Java Runtime Environment (JRE) if the user doesn’t have it installed.</p></li>
+<li><p><strong>Creating shortcuts</strong> for the app, such as desktop icons or Start menu entries.</p></li>
+<li><p><strong>Managing uninstallation</strong>, allowing users to easily remove the program when they no longer need it.</p></li>
+</ul>
+<p>Without an installer, users would have to manually place files in specific locations, ensure the correct version of Java is installed, and set up shortcuts or configuration files on their own. An installer automates this process, making your software more professional and user-friendly.</p>
+</section>
+<section id="step-1-compilation-what-is-it">
+<h3>Step 1: Compilation – What Is It?<a class="headerlink" href="#step-1-compilation-what-is-it" title="Link to this heading">#</a></h3>
+<p><strong>Compilation</strong> is the process of converting human-readable source code (in this case, Java code) into <strong>bytecode</strong>, which can be executed by the Java Virtual Machine (JVM). Bytecode is an intermediate language between your Java code and the machine code that the operating system can understand.</p>
+<p>When we talk about compiling a Java program, we are using the <strong>Java Compiler (<code class="docutils literal notranslate"><span class="pre">javac</span></code>)</strong> to convert <code class="docutils literal notranslate"><span class="pre">.java</span></code> source code files into <code class="docutils literal notranslate"><span class="pre">.class</span></code> bytecode files.</p>
+<section id="compiling-your-program">
+<h4>Compiling Your Program<a class="headerlink" href="#compiling-your-program" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p><strong>Open a terminal</strong> (Command Prompt or Terminal) on your computer.</p></li>
+<li><p><strong>Navigate</strong> to the directory where your <code class="docutils literal notranslate"><span class="pre">SimpleApp.java</span></code> file is located.</p></li>
+<li><p><strong>Run the following command</strong> to compile the program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>javac<span class="w"> </span>SimpleApp.java
+</pre></div>
+</div>
+<p>This command will generate a <code class="docutils literal notranslate"><span class="pre">SimpleApp.class</span></code> file, which contains the bytecode necessary to run the program using the JVM.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="step-2-creating-a-runnable-jar-file">
+<h3>Step 2: Creating a Runnable JAR File<a class="headerlink" href="#step-2-creating-a-runnable-jar-file" title="Link to this heading">#</a></h3>
+<p>A <strong>JAR (Java ARchive)</strong> file bundles together compiled <code class="docutils literal notranslate"><span class="pre">.class</span></code> files and any other resources (like images or configuration files) into a single, portable package that can be executed by the JVM. Users can run this JAR file on any machine that has Java installed.</p>
+<section id="creating-a-jar-file">
+<h4>Creating a JAR File<a class="headerlink" href="#creating-a-jar-file" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">.class</span></code> file has been generated by the <code class="docutils literal notranslate"><span class="pre">javac</span></code> compiler, we can create the JAR file using the <code class="docutils literal notranslate"><span class="pre">jar</span></code> command.</p></li>
+<li><p><strong>Run the following command</strong> to bundle the <code class="docutils literal notranslate"><span class="pre">.class</span></code> file into a JAR file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jar<span class="w"> </span>cfe<span class="w"> </span>SimpleApp.jar<span class="w"> </span>SimpleApp<span class="w"> </span>SimpleApp.class
+</pre></div>
+</div>
+<p>Here’s what each part of the command does:</p>
+<ul class="simple">
+<li><p><strong>cfe</strong>: Creates a JAR file and specifies the entry point (the <code class="docutils literal notranslate"><span class="pre">SimpleApp</span></code> class that contains the <code class="docutils literal notranslate"><span class="pre">main()</span></code> method).</p></li>
+<li><p><strong>SimpleApp.jar</strong>: The name of the JAR file that will be created.</p></li>
+<li><p><strong>SimpleApp</strong>: The name of the main class that should be executed when the JAR file is run.</p></li>
+<li><p><strong>SimpleApp.class</strong>: The compiled bytecode file that will be included in the JAR file.</p></li>
+</ul>
+</li>
+<li><p><strong>Running the JAR File</strong></p>
+<p>To run the JAR file on your machine (or any machine with Java installed), use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-jar<span class="w"> </span>SimpleApp.jar
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This method allows anyone with Java installed on their computer to run your application. However, users still need to run the program from the terminal, and Java must be installed on their system.</p>
+</section>
+</section>
+<section id="step-3-converting-to-a-windows-executable-exe">
+<h3>Step 3: Converting to a Windows Executable (.exe)<a class="headerlink" href="#step-3-converting-to-a-windows-executable-exe" title="Link to this heading">#</a></h3>
+<p>To make your application easier for Windows users to run (without needing Java installed or using the terminal), you can convert the JAR file into an executable (<code class="docutils literal notranslate"><span class="pre">.exe</span></code> file). We’ll use a tool called <strong>Launch4j</strong> to accomplish this.</p>
+<section id="using-launch4j-for-windows">
+<h4>Using Launch4j for Windows<a class="headerlink" href="#using-launch4j-for-windows" title="Link to this heading">#</a></h4>
+<p><strong>Launch4j</strong> is a free and widely-used tool that wraps a Java application (JAR file) into a Windows executable (<code class="docutils literal notranslate"><span class="pre">.exe</span></code> file). This allows users to double-click the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file and run your program like any other Windows application.</p>
+</section>
+<section id="step-by-step-instructions">
+<h4>Step-by-Step Instructions:<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Download Launch4j</strong>:</p>
+<ul class="simple">
+<li><p>Visit the <a class="reference external" href="http://launch4j.sourceforge.net/">Launch4j website</a> and download the tool.</p></li>
+<li><p>Install it on your Windows machine.</p></li>
+</ul>
+</li>
+<li><p><strong>Open Launch4j</strong> and configure your project:</p>
+<ul class="simple">
+<li><p><strong>Output File</strong>: Set the output file to <code class="docutils literal notranslate"><span class="pre">SimpleApp.exe</span></code>, which will be the executable generated by Launch4j.</p></li>
+<li><p><strong>Jar</strong>: Set this to the path of your <code class="docutils literal notranslate"><span class="pre">SimpleApp.jar</span></code> file.</p></li>
+<li><p><strong>Bundling the JRE</strong> (Optional): If you want to ensure your application runs even if the user does not have Java installed, you can bundle a specific JRE with your application. Set the path to the bundled JRE in the configuration.</p></li>
+</ul>
+</li>
+<li><p><strong>Build the Executable</strong>:</p>
+<ul class="simple">
+<li><p>Click on “Build Wrapper” in Launch4j. This will generate the <code class="docutils literal notranslate"><span class="pre">SimpleApp.exe</span></code> file, which is your Windows executable.</p></li>
+</ul>
+</li>
+<li><p><strong>Test the Executable</strong>:</p>
+<ul class="simple">
+<li><p>Double-click the generated <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file. If everything is configured correctly, your GUI application should launch as expected.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="step-4-creating-macos-and-linux-installers-with-jpackage">
+<h3>Step 4: Creating macOS and Linux Installers with jpackage<a class="headerlink" href="#step-4-creating-macos-and-linux-installers-with-jpackage" title="Link to this heading">#</a></h3>
+<p>Starting from <strong>JDK 14</strong>, Java includes a built-in tool called <strong>jpackage</strong>, which can generate native platform-specific installers for <strong>Windows, macOS, and Linux</strong>. This makes it easier to distribute applications that don’t require users to manually install Java.</p>
+<section id="why-use-jpackage">
+<h4>Why Use jpackage?<a class="headerlink" href="#why-use-jpackage" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>jpackage creates self-contained applications that include a Java runtime (JRE), so users do not need to install Java separately.</p></li>
+<li><p>It generates native installers for different platforms, making your app easy to distribute.</p></li>
+</ul>
+</section>
+<section id="example-creating-an-installer-for-windows-macos-or-linux">
+<h4>Example: Creating an Installer for Windows, macOS, or Linux<a class="headerlink" href="#example-creating-an-installer-for-windows-macos-or-linux" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p><strong>For Windows</strong>: Use the following command to package your JAR into a Windows <code class="docutils literal notranslate"><span class="pre">.exe</span></code> installer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jpackage<span class="w"> </span>--input<span class="w"> </span>.<span class="w"> </span>--name<span class="w"> </span>SimpleApp<span class="w"> </span>--main-jar<span class="w"> </span>SimpleApp.jar<span class="w"> </span>--type<span class="w"> </span>exe
+</pre></div>
+</div>
+</li>
+<li><p><strong>For macOS</strong>: Use this command to create a <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> file (the standard macOS installer format).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jpackage<span class="w"> </span>--input<span class="w"> </span>.<span class="w"> </span>--name<span class="w"> </span>SimpleApp<span class="w"> </span>--main-jar<span class="w"> </span>SimpleApp.jar<span class="w"> </span>--type<span class="w"> </span>pkg
+</pre></div>
+</div>
+</li>
+<li><p><strong>For Linux</strong>: Use the following command to create a <code class="docutils literal notranslate"><span class="pre">.deb</span></code> installer for Linux distributions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jpackage<span class="w"> </span>--input<span class="w"> </span>.<span class="w"> </span>--name<span class="w"> </span>SimpleApp<span class="w"> </span>--main-jar<span class="w"> </span>SimpleApp.jar<span class="w"> </span>--type<span class="w"> </span>deb
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id3">
+<h4>Explanation:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>–input</strong>: Specifies the directory where the JAR file is located.</p></li>
+<li><p><strong>–name</strong>: The name of the application.</p></li>
+<li><p><strong>–main-jar</strong>: The JAR file that should be executed when the user runs the app.</p></li>
+<li><p><strong>–type</strong>: Specifies the type of installer to create (<code class="docutils literal notranslate"><span class="pre">exe</span></code> for Windows, <code class="docutils literal notranslate"><span class="pre">pkg</span></code> for macOS, <code class="docutils literal notranslate"><span class="pre">deb</span></code> for Linux).</p></li>
+</ul>
+</section>
+<section id="bundling-the-jre-with-jpackage">
+<h4>Bundling the JRE with jpackage<a class="headerlink" href="#bundling-the-jre-with-jpackage" title="Link to this heading">#</a></h4>
+<p>To make the app truly self-contained (so users don’t need to install Java separately), you can bundle the JRE with the application using the <code class="docutils literal notranslate"><span class="pre">--runtime-image</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jpackage<span class="w"> </span>--input<span class="w"> </span>.<span class="w"> </span>--name<span class="w"> </span>SimpleApp<span class="w"> </span>--main-jar<span class="w"> </span>SimpleApp.jar<span class="w"> </span>--type<span class="w"> </span>exe<span class="w"> </span>--runtime-image<span class="w"> </span>path_to_jre
+</pre></div>
+</div>
+<p>This creates an executable that includes the JRE, ensuring the application runs on machines that don’t have Java installed.</p>
+</section>
+</section>
+<section id="step-5-creating-an-installer-why-do-you-need-one">
+<h3>Step 5: Creating an Installer – Why Do You Need One?<a class="headerlink" href="#step-5-creating-an-installer-why-do-you-need-one" title="Link to this heading">#</a></h3>
+<p>When distributing software to users, an installer does much more than simply copy files. It provides a professional, user-friendly way for people to install and uninstall the application, taking care of setup tasks such as:</p>
+<ul class="simple">
+<li><p><strong>Setting up directories</strong> where the application files are stored.</p></li>
+<li><p><strong>Adding shortcuts</strong> to the desktop, Start menu, or application folder.</p></li>
+<li><p><strong>Bundling dependencies</strong>, such as the JRE or additional libraries.</p></li>
+<li><p><strong>Creating an uninstaller</strong> that lets users remove the software completely if they no longer need it.</p></li>
+</ul>
+<p>By creating an installer, you ensure that your application can be installed and used by a wide audience without the need for technical knowledge or manual setup.</p>
+<section id="using-inno-setup-to-create-a-windows-installer">
+<h4>Using Inno Setup to Create a Windows Installer<a class="headerlink" href="#using-inno-setup-to-create-a-windows-installer" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Download and Install Inno Setup</strong>:</p>
+<ul class="simple">
+<li><p>Visit <a class="reference external" href="https://jrsoftware.org/isinfo.php">Inno Setup’s website</a> and download the tool.</p></li>
+<li><p>Install it on your Windows machine.</p></li>
+</ul>
+</li>
+<li><p><strong>Configure Inno Setup</strong>:</p>
+<ul class="simple">
+<li><p>When you launch Inno Setup, select “Create a new script file using the script wizard.”</p></li>
+<li><p>Follow the wizard to specify:</p>
+<ul>
+<li><p><strong>Application name</strong>: “SimpleApp”</p></li>
+<li><p><strong>Version</strong>: “1.0”</p></li>
+<li><p><strong>Publisher</strong>: Your name or company.</p></li>
+<li><p><strong>Main executable</strong>: Point this to your <code class="docutils literal notranslate"><span class="pre">SimpleApp.exe</span></code> file generated by Launch4j or jpackage.</p></li>
+</ul>
+</li>
+<li><p>Add any supporting files (such as the JRE</p></li>
+</ul>
+</li>
+</ol>
+<p>if you plan to bundle it).</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Customize the Installer</strong>:</p>
+<ul class="simple">
+<li><p>Add options like <strong>desktop shortcuts</strong> or <strong>Start menu entries</strong>.</p></li>
+<li><p>Configure the uninstallation options.</p></li>
+</ul>
+</li>
+<li><p><strong>Compile the Installer</strong>:</p>
+<ul class="simple">
+<li><p>After setting up the script, Inno Setup will compile the installer and generate an <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file (e.g., <code class="docutils literal notranslate"><span class="pre">SimpleAppInstaller.exe</span></code>).</p></li>
+<li><p>Users can now double-click this installer to install the app on their system.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p>By the end of this part of the lab, you’ve learned how to:</p>
+<ul class="simple">
+<li><p>Compile your Java Swing application into a runnable JAR file.</p></li>
+<li><p>Convert the JAR into platform-specific executables (<code class="docutils literal notranslate"><span class="pre">.exe</span></code>, <code class="docutils literal notranslate"><span class="pre">.pkg</span></code>, or <code class="docutils literal notranslate"><span class="pre">.deb</span></code>).</p></li>
+<li><p>Package your application into a professional, user-friendly installer using <strong>Launch4j</strong>, <strong>jpackage</strong>, or <strong>Inno Setup</strong>.</p></li>
+<li><p>Understand the importance of installers in providing a smooth, polished experience for users.</p></li>
+</ul>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Improve the Installer</strong>: Add a custom icon and splash screen to your installer using Inno Setup or jpackage.</p></li>
+<li><p><strong>Cross-Platform Distribution</strong>: Create installers for Windows, macOS, and Linux, ensuring that users on all platforms can easily install and run your app.</p></li>
+<li><p><strong>Custom Uninstallation</strong>: Modify the installer to handle custom tasks during uninstallation, such as removing configuration files or user data.</p></li>
+<li><p><strong>Bundling the JRE</strong>: Ensure your installer works on machines that don’t have Java by bundling the JRE with your application.</p></li>
+<li><p><strong>Pong</strong>: Follow the following tutorial and make a game yourselves: <a class="reference external" href="https://kevinsguides.com/guides/code/java/javaprojs/simple-2d-pong/">https://kevinsguides.com/guides/code/java/javaprojs/simple-2d-pong/</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./APCSA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="recursion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Unit 10: Recursion</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-building-a-basic-swing-application">Part 1: Building a Basic Swing Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-swing">What is Swing?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-swing">Key Components of Swing:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-guide-to-building-a-gui">Step-by-Step Guide to Building a GUI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-your-project">Step 1: Set Up Your Project</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-main-window-jframe">Step 2: Create the Main Window (JFrame)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-components-label-and-button">Step 3: Adding Components (Label and Button)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-adding-event-handling-button-click">Step 4: Adding Event Handling (Button Click)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Explanation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-cross-platform-look-and-feel">Step 5: Cross-Platform Look and Feel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-packaging-and-distributing-the-application">Part 2: Packaging and Distributing the Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-package-software">What Does It Mean to Package Software?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-an-installer">Why Do We Need an Installer?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-compilation-what-is-it">Step 1: Compilation – What Is It?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-your-program">Compiling Your Program</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-runnable-jar-file">Step 2: Creating a Runnable JAR File</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-jar-file">Creating a JAR File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-converting-to-a-windows-executable-exe">Step 3: Converting to a Windows Executable (.exe)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-launch4j-for-windows">Using Launch4j for Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-instructions">Step-by-Step Instructions:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-creating-macos-and-linux-installers-with-jpackage">Step 4: Creating macOS and Linux Installers with jpackage</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-jpackage">Why Use jpackage?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-creating-an-installer-for-windows-macos-or-linux">Example: Creating an Installer for Windows, macOS, or Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Explanation:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bundling-the-jre-with-jpackage">Bundling the JRE with jpackage</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-creating-an-installer-why-do-you-need-one">Step 5: Creating an Installer – Why Do You Need One?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-inno-setup-to-create-a-windows-installer">Using Inno Setup to Create a Windows Installer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iddo Sadeh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

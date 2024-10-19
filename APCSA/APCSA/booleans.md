@@ -238,7 +238,7 @@ String name = scanner.nextLine();
    Scan a number from your user and print out fizz if it is divisible by 3, buzz if it is divisible by 5, and fizzbuzz if it is divisible by both. Print out the original number if none of the above conditions are met.
 
 3. **Nested Conditionals**:  
-   Add a nested `if` statement to the code in question 1. Check if the number is divisible by 3 as well. Print whether it is divisible by 3.
+   Add a nested `if` statement to the code in question 1. Check if the number is divisible by 3 as well. Print whether it is divisible by 3. 
 
 4. **Random Number with Multiple Conditions**:  
    Generate a random number between -10 and 10. If the number is positive, check if it is even or odd, and whether divisible by 3. If the number is zero, print that it is zero. If negative, print that it's negative and display its absolute value.

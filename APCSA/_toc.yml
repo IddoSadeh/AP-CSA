@@ -8,5 +8,11 @@ chapters:
   - file: APCSA/primitiveTypes
   - file: APCSA/objects
   - file: APCSA/booleans
+  - file: APCSA/classes
   - file: APCSA/loops
-
+  - file: APCSA/arrays
+  - file: APCSA/arrayLists
+  - file: APCSA/twoDarrays
+  - file: APCSA/inheritance
+  - file: APCSA/recursion
+  - file: APCSA/swing
