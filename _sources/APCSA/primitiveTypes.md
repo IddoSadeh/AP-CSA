@@ -285,8 +285,7 @@ For more questions and a unit summary please visit [CSAwesome](https://runestone
 
    ```
    Hello World
-   My name is 
-   Your Name
+   My name is Your Name
    ```
 
 3. **Variable Declaration**  
