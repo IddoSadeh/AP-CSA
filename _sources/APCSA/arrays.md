@@ -172,13 +172,13 @@ public static void main(String[] args) {
 Write a Array Helper class with the following methods:
 
 1. **Find Minimum**: Write a method to find the minimum value in an array.
-2. **Sum/Average**: Write a method to compute the sum and average of array elements.
-3. **Search**: Write a method to search for a specific element in an array.
-4. **Check Properties**: Write methods to check if at least one or all elements meet a certain condition.
-5. **Access Consecutive Pairs**: Write a method to access and print all consecutive pairs of elements in an array.
-6. **Check for Duplicates**: Write a method to determine if the array contains duplicate elements.
+2. **Average**: Write a method to compute the average of array elements.
+3. **Search**: Write a method to search if a value exists in an array.
+4. **Check Properties**: Write a method to check if at least one or all elements meet a certain condition.
+5. **Access Consecutive Pairs**: Write a method to check if all consecutive pairs of elements in an array sum to 10.
+6. **Check for Duplicates**: Write a method to determine if an array contains duplicate elements.
 7. **Count Specific Criteria**: Write a method to count how many elements meet a specific criterion (e.g., greater than a certain value).
-8. **Shift/Rotate**: Write a method to shift or rotate elements of the array left or right.
+8. **Shift**: Write a method to shift all elements of an array right by 1 position.
 9. **Reverse**: Write a method to reverse the elements of the array.
 
 ## Runestone Exercises
